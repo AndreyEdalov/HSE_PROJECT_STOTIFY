@@ -21,15 +21,15 @@ def get_year_stats(table: List[List[object]]) -> Dict:
 
 
 
-def get_most_mentioned_artists(table: List[List[object]]) -> str:
+def get_most_mentioned_artist(table: List[List[object]]) -> str:
     most_popular={}
     for i in table:
         if i[7] in most_popular:
             most_popular[i[7]]+=1
         else:
             most_popular[i[7]] = 1
-    x = max(most_popular,key=most_popular.get)
-    return x
+    most_mentioned_artist = max(most_popular,key=most_popular.get)
+    return most_mentioned_artist
 
 
 
@@ -42,4 +42,4 @@ if __name__ == '__main__':
 
 
 print("Most popular year:",max(get_year_stats(table)))
-print("Most popular artist:",get_most_mentioned_artists(table))
+print("Most popular artist:",get_most_mentioned_artist(table))
